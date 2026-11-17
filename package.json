@@ -1,0 +1,44 @@
+{
+  "name": "ggo-ink-forge",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "description": "G G O — Ink-Forge Physics Jousting. Mobile-first 2D clockwork jousting with freehand vehicle sketching, Matter.js physics, Solo Campaign, Online Quick Match (Supabase + WebRTC), and Private Rooms. Simple name-based accounts.",
+  "author": "G G O Team",
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "vite --port=3000 --host",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --port=4173",
+    "typecheck": "tsc --noEmit",
+    "lint": "tsc --noEmit",
+    "clean": "rm -rf dist node_modules/.vite"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.8",
+    "@tailwindcss/vite": "^4.1.8",
+    "jsqr": "^1.4.0",
+    "lucide-react": "^0.511.0",
+    "lz-string": "^1.5.0",
+    "matter-js": "^0.20.0",
+    "motion": "^12.15.0",
+    "qrcode": "^1.5.4",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "zustand": "^5.0.5"
+  },
+  "devDependencies": {
+    "@types/matter-js": "^0.19.8",
+    "@types/node": "^22.15.21",
+    "@types/qrcode": "^1.5.5",
+    "@types/react": "^19.1.5",
+    "@types/react-dom": "^19.1.5",
+    "@vitejs/plugin-react": "^4.5.0",
+    "tailwindcss": "^4.1.8",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

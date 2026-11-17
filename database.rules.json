@@ -1,0 +1,47 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+
+    "queue": {
+      ".read": "auth != null",
+      "$uid": {
+        ".write": "auth != null && auth.uid === $uid",
+        ".validate": "newData.hasChildren(['uid', 'ts', 'name']) && newData.child('uid').val() === auth.uid"
+      }
+    },
+
+    "rooms": {
+      "$roomId": {
+        ".read": "auth != null",
+        ".write": "auth != null",
+        ".validate": "newData.hasChildren(['id', 'hostUid', 'createdAt']) || !newData.exists()"
+      }
+    },
+
+    "usernames": {
+      "$name": {
+        ".read": "auth != null",
+        ".write": "auth != null",
+        ".validate": "newData.isString() && newData.val().length >= 2 && newData.val().length <= 24"
+      }
+    },
+
+    "users": {
+      "$uid": {
+        ".read": "auth != null",
+        ".write": "auth != null && auth.uid === $uid",
+        ".validate": "newData.hasChildren(['profile', 'inventory', 'updatedAt'])"
+      }
+    },
+
+    "leaderboard": {
+      ".read": "auth != null",
+      ".indexOn": ["trophies"],
+      "$uid": {
+        ".write": "auth != null && auth.uid === $uid",
+        ".validate": "newData.hasChildren(['name', 'trophies', 'wins', 'losses', 'avatar']) && newData.child('name').isString() && newData.child('name').val().length >= 1 && newData.child('name').val().length <= 24 && newData.child('avatar').isString() && newData.child('trophies').isNumber() && newData.child('trophies').val() >= 0 && newData.child('trophies').val() % 1 === 0 && (!data.exists() ? newData.child('trophies').val() <= 40 : newData.child('trophies').val() <= data.child('trophies').val() + 40) && newData.child('wins').isNumber() && newData.child('wins').val() >= 0 && newData.child('losses').isNumber() && newData.child('losses').val() >= 0"
+      }
+    }
+  }
+}
