@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+:root {
+  --ggo-bg-primary: #161412;
+  --ggo-bg-surface: #221e1b;
+  --ggo-bg-surface-alt: #2c2621;
+  --ggo-accent-primary: #d99b26;
+  --ggo-accent-secondary: #e85d2a;
+  --ggo-text-primary: #f5efe6;
+  --ggo-text-muted: #c7beb2;
+  --ggo-border: rgba(217, 155, 38, 0.35);
+  --ggo-font-body: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--ggo-bg-primary);
+    color: var(--ggo-text-primary);
+    font-family: var(--ggo-font-body);
+    overscroll-behavior: none;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom thin scrollbars inside modals */
+.forge-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.forge-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03);
+}
+.forge-scroll::-webkit-scrollbar-thumb {
+  background: rgba(217, 155, 38, 0.35);
+  border-radius: 999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
